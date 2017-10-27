@@ -1,4 +1,4 @@
-# Twitter Cryptocurrency sentiment analysis using NLTK VADER
+## Twitter Cryptocurrency Sentiment Analysis Using NLTK VADER
 
 ### Requirement
 1. Node JS + NPM
