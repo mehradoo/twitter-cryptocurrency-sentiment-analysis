@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <html>
+  <head>
+    <title>Tweeter Sentiment Analysis</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      $(function () {
+        console.log('Running on: ' + window.location.origin);
+        var socket = io.connect(window.location.origin);
+
+        socket.on('tweets', function (data) {
+          if ($('#tweets li').length == 20) {
+            $("#tweets li").first().remove();
+          }
+          $('#tweets').append('<li>' + data.detail + '</li>');
+          $('#positive').val(data.positive);
+          $('#negative').val(data.negative);
+          $('#neutral').val(data.neutral);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <label for="positive">Positive</label>
+    <input type="text" id="positive" readonly>
+    <label for="negative">Negative</label>
+    <input type="text" id="negative" readonly>
+    <label for="neutral">Neutral</label>
+    <input type="text" id="neutral" readonly>
+    <ul id="tweets"></ul>
+  </body>
+</html>
