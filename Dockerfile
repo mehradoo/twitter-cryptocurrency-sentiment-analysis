@@ -12,7 +12,7 @@ RUN \
 # install NLTK and download NLTK data
 RUN \
   pip install -U nltk && \
-  python -m nltk.downloader all
+  python -m nltk.downloader vader_lexicon
 
 # install zerorpc and zmq
 RUN \
